@@ -6,6 +6,8 @@
 
 package balldetection;
 
+import static balldetection.Webcam.toBufferedImage;
+import java.io.IOException;
 import java.util.Vector;
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
@@ -22,39 +24,46 @@ import static org.opencv.imgproc.Imgproc.GaussianBlur;
  * @author FIRST
  */
 public class BallDetection {
-    static VideoCapture camera = new VideoCapture(0);
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
-        camera.open(0); //Useless
-        Mat rgb = getVideo();
-        Mat hsv = new Mat();
-        
-        Imgproc.cvtColor(rgb, hsv, Imgproc.COLOR_RGB2HSV);
-        GaussianBlur(hsv, hsv, new Size(9,9), 2, 2);
-        Core.inRange(hsv, new Scalar(20, 100, 100), new Scalar(30, 255, 255), hsv);
-        Mat circles = new Mat();
-        Vector circlesV = new Vector();
-        Imgproc.HoughCircles(hsv, circles, CV_HOUGH_GRADIENT, 2.0, (double)hsv.rows()/4);//, 200, 100);
-        
-        for(int i = 0; i < circles.rows(); i++)
-        {
-            //Point center = new Point((int)Math.round(circles[i][0]), (int)Math.round(circles[i][1]));
-        }
-               
-        
-    }
-    
-    private static Mat getVideo() {
+        VideoCapture camera = new VideoCapture(0);
         Mat frame = new Mat();
-        //camera.grab();
-        //System.out.println("Frame Grabbed");
-        //camera.retrieve(frame);
-        //System.out.println("Frame Decoded");
-        camera.read(frame);
-        return frame;
+        Webcam.ImagePanel panel = Webcam.createPanel(camera);
+        while (true) {
+            Mat gray = new Mat(), src, circles = new Mat();
+            Mat hsv = new Mat(), filter = new Mat();
+            camera.read(frame);
+            src = frame;
+
+            Imgproc.cvtColor(src, hsv, Imgproc.COLOR_BGR2HSV);
+            //GaussianBlur(gray, gray, new Size(9,9), 2, 2);
+            //Core.inRange(gray, new Scalar(20, 100, 100), new Scalar(30, 255, 255), gray);
+            Core.inRange(hsv, new Scalar(75, 30, 140), new Scalar(140, 130, 255), filter);
+            //Core.inRange(hsv, new Scalar(0, 0, 0), new Scalar(0, 255, 0), filter);
+            //Core.inRange(hsv, new Scalar(0, 0, 0), new Scalar(255, 0, 0), filter);
+            
+            //Imgproc.cvtColor(redOnly, gray, Imgproc.color_h );
+            double[] temp = hsv.get(hsv.rows()/2, hsv.cols()/2);
+            System.out.println(temp[0] + ", " + temp[1] + ", " + temp[2]);
+            
+            Imgproc.HoughCircles(filter, circles, CV_HOUGH_GRADIENT, 1, filter.rows()/16, 200, 100, 0, 0);
+
+            for(int i = 0; i < circles.cols(); i++)
+            {
+                Point center = new Point(Math.round(circles.get(0,i)[0]), Math.round(circles.get(0,i)[1]));
+                int radius = (int)Math.round(circles.get(0,i)[2]);
+                // draw the circle center
+                Core.circle(src, center, 3, new Scalar(0,255,0), -1, 8, 0 );
+                // draw the circle outline
+                Core.circle(src, center, radius, new Scalar(0,0,255), 3, 8, 0 );
+                //System.out.println("" + circles.get(0,0)[0] + ", " + circles.get(0,0)[1] + ", " + circles.get(0,0)[2]);
+            }  
+
+            panel.updateImage(toBufferedImage(hsv));
+        }
     }
-    
 }

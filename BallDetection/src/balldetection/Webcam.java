@@ -22,14 +22,19 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
+import org.opencv.core.Point;
+import org.opencv.core.Scalar;
+import org.opencv.core.Size;
 import org.opencv.highgui.VideoCapture;
 import org.opencv.imgproc.Imgproc;
+import static org.opencv.imgproc.Imgproc.CV_HOUGH_GRADIENT;
+import static org.opencv.imgproc.Imgproc.GaussianBlur;
 
 class Webcam {
 
     private static final int WIDTH = 640, HEIGHT = 480;
 
-    private static Image toBufferedImage(Mat m) {
+    public static Image toBufferedImage(Mat m) {
         int type = BufferedImage.TYPE_BYTE_GRAY;
         if (m.channels() > 1) {
             Mat m2 = new Mat();
@@ -44,7 +49,7 @@ class Webcam {
         return image;
     }
 
-    private static class ImagePanel extends JPanel {
+    public static class ImagePanel extends JPanel {
         private Image image;
         public void updateImage(Image image) {
             this.image = image;
@@ -57,7 +62,7 @@ class Webcam {
         }
     }
     
-    private static ImagePanel createPanel(final VideoCapture camera) throws IOException {
+    public static ImagePanel createPanel(final VideoCapture camera) throws IOException {
         JFrame frame = new JFrame();
         frame.addWindowListener(new WindowAdapter() {
             @Override
@@ -82,7 +87,6 @@ class Webcam {
         while (true) {
             camera.read(frame);
             panel.updateImage(toBufferedImage(frame));
-            Thread.sleep(10);
         }
     }
 }
