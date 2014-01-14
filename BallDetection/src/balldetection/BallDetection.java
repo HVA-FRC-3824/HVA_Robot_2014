@@ -29,6 +29,8 @@ public class BallDetection {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws IOException {
+        CameraWindow cWindow = new CameraWindow();
+        cWindow.setVisible(true);
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
         VideoCapture camera = new VideoCapture(0);
         Mat frame = new Mat();
@@ -40,9 +42,11 @@ public class BallDetection {
             src = frame;
 
             Imgproc.cvtColor(src, hsv, Imgproc.COLOR_BGR2HSV);
+            Imgproc.cvtColor(src, gray, Imgproc.COLOR_BGR2GRAY);
             //GaussianBlur(gray, gray, new Size(9,9), 2, 2);
-            //Core.inRange(gray, new Scalar(20, 100, 100), new Scalar(30, 255, 255), gray);
-            Core.inRange(hsv, new Scalar(75, 30, 140), new Scalar(140, 130, 255), filter);
+            Core.inRange(gray, new Scalar(20, 100, 100), new Scalar(30, 255, 255), gray);
+            Core.inRange(hsv, new Scalar(cWindow.get_hLower(), cWindow.get_sLower(), cWindow.get_vLower()), 
+                    new Scalar(cWindow.get_hUpper(), cWindow.get_sUpper(), cWindow.get_vUpper()), filter);
             //Core.inRange(hsv, new Scalar(0, 0, 0), new Scalar(0, 255, 0), filter);
             //Core.inRange(hsv, new Scalar(0, 0, 0), new Scalar(255, 0, 0), filter);
             
@@ -50,7 +54,9 @@ public class BallDetection {
             double[] temp = hsv.get(hsv.rows()/2, hsv.cols()/2);
             System.out.println(temp[0] + ", " + temp[1] + ", " + temp[2]);
             
-            Imgproc.HoughCircles(filter, circles, CV_HOUGH_GRADIENT, 1, filter.rows()/16, 200, 100, 0, 0);
+            Imgproc.HoughCircles(filter, circles, CV_HOUGH_GRADIENT, cWindow.get_dp(), filter.rows()/16, 
+                    cWindow.get_param1(), cWindow.get_param2(), 
+                    cWindow.get_minCircleSize(), cWindow.get_maxCircleSize());
 
             for(int i = 0; i < circles.cols(); i++)
             {
@@ -63,7 +69,7 @@ public class BallDetection {
                 //System.out.println("" + circles.get(0,0)[0] + ", " + circles.get(0,0)[1] + ", " + circles.get(0,0)[2]);
             }  
 
-            panel.updateImage(toBufferedImage(hsv));
+            panel.updateImage(toBufferedImage(src));
         }
     }
 }

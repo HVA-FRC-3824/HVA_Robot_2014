@@ -15,6 +15,14 @@ public class CameraWindow extends javax.swing.JFrame
     static int i_dp;
     static int i_param1;
     static int i_param2;
+    static int i_minCircleSize;
+    static int i_maxCircleSize;
+    static int i_hLower;
+    static int i_hUpper;
+    static int i_sLower;
+    static int i_sUpper;
+    static int i_vLower;
+    static int i_vUpper;
     /**
      * Creates new form CameraWindow
      */
@@ -24,6 +32,22 @@ public class CameraWindow extends javax.swing.JFrame
         i_dp = 1;
         i_param1 = 100;
         i_param2 = 200;
+        i_minCircleSize = 0;
+        i_maxCircleSize = 0;
+        
+        lbl_dpVal.setText("" + sld_dpVal.getValue());
+        lbl_param1Val.setText("" + sld_param1.getValue());
+        lbl_param2Val.setText("" + sld_param2.getValue());
+        lbl_minVal.setText("" + sld_minCircleSize.getValue());
+        lbl_maxVal.setText("" + sld_maxCircleSize.getValue());
+        
+        lbl_hLowerVal.setText("" + sld_hLower.getValue());
+        lbl_sLowerVal.setText("" + sld_sLower.getValue());
+        lbl_vLowerVal.setText("" + sld_vLower.getValue());
+        
+        lbl_hUpperVal.setText("" + sld_hUpper.getValue());
+        lbl_sUpperVal.setText("" + sld_sUpper.getValue());
+        lbl_vUpperVal.setText("" + sld_vUpper.getValue());
     }
 
     /**
@@ -33,14 +57,42 @@ public class CameraWindow extends javax.swing.JFrame
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         sld_dpVal = new javax.swing.JSlider();
-        jLabel1 = new javax.swing.JLabel();
+        lbl_dpName = new javax.swing.JLabel();
         sld_param1 = new javax.swing.JSlider();
-        jLabel2 = new javax.swing.JLabel();
+        lbl_param1Name = new javax.swing.JLabel();
         sld_param2 = new javax.swing.JSlider();
-        jLabel3 = new javax.swing.JLabel();
+        lbl_param2Name = new javax.swing.JLabel();
+        sld_minCircleSize = new javax.swing.JSlider();
+        sld_maxCircleSize = new javax.swing.JSlider();
+        lbl_minName = new javax.swing.JLabel();
+        lbl_maxName = new javax.swing.JLabel();
+        lbl_minVal = new javax.swing.JLabel();
+        lbl_param2Val = new javax.swing.JLabel();
+        lbl_param1Val = new javax.swing.JLabel();
+        lbl_dpVal = new javax.swing.JLabel();
+        lbl_maxVal = new javax.swing.JLabel();
+        sld_hLower = new javax.swing.JSlider();
+        sld_hUpper = new javax.swing.JSlider();
+        sld_sLower = new javax.swing.JSlider();
+        lbl_hLowerName = new javax.swing.JLabel();
+        lbl_hUpperName = new javax.swing.JLabel();
+        lbl_sLowerName = new javax.swing.JLabel();
+        sld_sUpper = new javax.swing.JSlider();
+        lbl_sUpperName = new javax.swing.JLabel();
+        sld_vLower = new javax.swing.JSlider();
+        sld_vUpper = new javax.swing.JSlider();
+        lbl_vLowerName = new javax.swing.JLabel();
+        lbl_vUpperName = new javax.swing.JLabel();
+        lbl_hLowerVal = new javax.swing.JLabel();
+        lbl_hUpperVal = new javax.swing.JLabel();
+        lbl_sLowerVal = new javax.swing.JLabel();
+        lbl_sUpperVal = new javax.swing.JLabel();
+        lbl_vLowerVal = new javax.swing.JLabel();
+        lbl_vUpperVal = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -52,45 +104,198 @@ public class CameraWindow extends javax.swing.JFrame
         sld_dpVal.setPaintTicks(true);
         sld_dpVal.setSnapToTicks(true);
         sld_dpVal.setToolTipText("");
-        sld_dpVal.setValue(5);
-        sld_dpVal.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+        sld_dpVal.setValue(1);
+        sld_dpVal.addChangeListener(new javax.swing.event.ChangeListener()
+        {
+            public void stateChanged(javax.swing.event.ChangeEvent evt)
+            {
                 sld_dpValStateChanged(evt);
             }
         });
 
-        jLabel1.setText("dp value");
+        lbl_dpName.setText("dp value");
 
         sld_param1.setMajorTickSpacing(100);
         sld_param1.setMaximum(600);
-        sld_param1.setMinimum(1);
         sld_param1.setMinorTickSpacing(20);
         sld_param1.setPaintLabels(true);
         sld_param1.setPaintTicks(true);
         sld_param1.setSnapToTicks(true);
         sld_param1.setToolTipText("");
-        sld_param1.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+        sld_param1.setValue(200);
+        sld_param1.addChangeListener(new javax.swing.event.ChangeListener()
+        {
+            public void stateChanged(javax.swing.event.ChangeEvent evt)
+            {
                 sld_param1StateChanged(evt);
             }
         });
 
-        jLabel2.setText("param1");
+        lbl_param1Name.setText("param1");
 
         sld_param2.setMajorTickSpacing(50);
         sld_param2.setMaximum(300);
-        sld_param2.setMinimum(1);
         sld_param2.setMinorTickSpacing(10);
         sld_param2.setPaintLabels(true);
         sld_param2.setPaintTicks(true);
         sld_param2.setSnapToTicks(true);
-        sld_param2.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+        sld_param2.setToolTipText("");
+        sld_param2.setValue(100);
+        sld_param2.addChangeListener(new javax.swing.event.ChangeListener()
+        {
+            public void stateChanged(javax.swing.event.ChangeEvent evt)
+            {
                 sld_param2StateChanged(evt);
             }
         });
 
-        jLabel3.setText("param2");
+        lbl_param2Name.setText("param2");
+
+        sld_minCircleSize.setMajorTickSpacing(100);
+        sld_minCircleSize.setMaximum(500);
+        sld_minCircleSize.setMinorTickSpacing(25);
+        sld_minCircleSize.setPaintLabels(true);
+        sld_minCircleSize.setPaintTicks(true);
+        sld_minCircleSize.setSnapToTicks(true);
+        sld_minCircleSize.setValue(0);
+        sld_minCircleSize.addChangeListener(new javax.swing.event.ChangeListener()
+        {
+            public void stateChanged(javax.swing.event.ChangeEvent evt)
+            {
+                sld_minCircleSizeStateChanged(evt);
+            }
+        });
+
+        sld_maxCircleSize.setMajorTickSpacing(100);
+        sld_maxCircleSize.setMaximum(1000);
+        sld_maxCircleSize.setMinorTickSpacing(50);
+        sld_maxCircleSize.setPaintLabels(true);
+        sld_maxCircleSize.setPaintTicks(true);
+        sld_maxCircleSize.setValue(0);
+        sld_maxCircleSize.addChangeListener(new javax.swing.event.ChangeListener()
+        {
+            public void stateChanged(javax.swing.event.ChangeEvent evt)
+            {
+                sld_maxCircleSizeStateChanged(evt);
+            }
+        });
+
+        lbl_minName.setText("min circle size");
+
+        lbl_maxName.setText("max circle size");
+
+        lbl_minVal.setText("jLabel1");
+
+        lbl_param2Val.setText("jLabel1");
+
+        lbl_param1Val.setText("jLabel1");
+
+        lbl_dpVal.setText("jLabel1");
+
+        lbl_maxVal.setText("jLabel1");
+
+        sld_hLower.setMajorTickSpacing(5);
+        sld_hLower.setMaximum(255);
+        sld_hLower.setOrientation(javax.swing.JSlider.VERTICAL);
+        sld_hLower.setPaintTicks(true);
+        sld_hLower.setValue(0);
+        sld_hLower.addChangeListener(new javax.swing.event.ChangeListener()
+        {
+            public void stateChanged(javax.swing.event.ChangeEvent evt)
+            {
+                sld_hLowerStateChanged(evt);
+            }
+        });
+
+        sld_hUpper.setMajorTickSpacing(5);
+        sld_hUpper.setMaximum(255);
+        sld_hUpper.setOrientation(javax.swing.JSlider.VERTICAL);
+        sld_hUpper.setPaintTicks(true);
+        sld_hUpper.setValue(255);
+        sld_hUpper.addChangeListener(new javax.swing.event.ChangeListener()
+        {
+            public void stateChanged(javax.swing.event.ChangeEvent evt)
+            {
+                sld_hUpperStateChanged(evt);
+            }
+        });
+
+        sld_sLower.setMajorTickSpacing(5);
+        sld_sLower.setMaximum(255);
+        sld_sLower.setOrientation(javax.swing.JSlider.VERTICAL);
+        sld_sLower.setPaintTicks(true);
+        sld_sLower.setValue(0);
+        sld_sLower.addChangeListener(new javax.swing.event.ChangeListener()
+        {
+            public void stateChanged(javax.swing.event.ChangeEvent evt)
+            {
+                sld_sLowerStateChanged(evt);
+            }
+        });
+
+        lbl_hLowerName.setText("H Lower");
+
+        lbl_hUpperName.setText("H Upper");
+
+        lbl_sLowerName.setText("S Lower");
+
+        sld_sUpper.setMajorTickSpacing(5);
+        sld_sUpper.setMaximum(255);
+        sld_sUpper.setOrientation(javax.swing.JSlider.VERTICAL);
+        sld_sUpper.setPaintTicks(true);
+        sld_sUpper.setValue(255);
+        sld_sUpper.addChangeListener(new javax.swing.event.ChangeListener()
+        {
+            public void stateChanged(javax.swing.event.ChangeEvent evt)
+            {
+                sld_sUpperStateChanged(evt);
+            }
+        });
+
+        lbl_sUpperName.setText("S Upper");
+
+        sld_vLower.setMajorTickSpacing(5);
+        sld_vLower.setMaximum(255);
+        sld_vLower.setOrientation(javax.swing.JSlider.VERTICAL);
+        sld_vLower.setPaintTicks(true);
+        sld_vLower.setToolTipText("");
+        sld_vLower.setValue(0);
+        sld_vLower.addChangeListener(new javax.swing.event.ChangeListener()
+        {
+            public void stateChanged(javax.swing.event.ChangeEvent evt)
+            {
+                sld_vLowerStateChanged(evt);
+            }
+        });
+
+        sld_vUpper.setMajorTickSpacing(5);
+        sld_vUpper.setMaximum(255);
+        sld_vUpper.setOrientation(javax.swing.JSlider.VERTICAL);
+        sld_vUpper.setPaintTicks(true);
+        sld_vUpper.setValue(255);
+        sld_vUpper.addChangeListener(new javax.swing.event.ChangeListener()
+        {
+            public void stateChanged(javax.swing.event.ChangeEvent evt)
+            {
+                sld_vUpperStateChanged(evt);
+            }
+        });
+
+        lbl_vLowerName.setText("V Lower");
+
+        lbl_vUpperName.setText("V Upper");
+
+        lbl_hLowerVal.setText("jLabel1");
+
+        lbl_hUpperVal.setText("jLabel1");
+
+        lbl_sLowerVal.setText("jLabel1");
+
+        lbl_sUpperVal.setText("jLabel1");
+
+        lbl_vLowerVal.setText("jLabel1");
+
+        lbl_vUpperVal.setText("jLabel1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -100,39 +305,149 @@ public class CameraWindow extends javax.swing.JFrame
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(sld_param2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel3))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(sld_param1, javax.swing.GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE)
+                                    .addComponent(sld_dpVal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(21, 21, 21)
+                                .addComponent(lbl_param1Name, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lbl_param1Val))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(sld_param2, javax.swing.GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE)
+                                    .addComponent(sld_minCircleSize, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(sld_maxCircleSize, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lbl_maxName)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lbl_maxVal))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(lbl_minName)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(3, 3, 3)
+                                                .addComponent(lbl_param2Name, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                        .addGap(18, 31, Short.MAX_VALUE)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lbl_param2Val, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(lbl_minVal)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lbl_dpName)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lbl_dpVal)))))
+                        .addGap(28, 28, 28))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(sld_dpVal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(sld_param1, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(sld_hLower, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_hLowerName)
+                            .addComponent(lbl_hLowerVal))
                         .addGap(18, 18, 18)
-                        .addComponent(jLabel2)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(sld_hUpper, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_hUpperName)
+                            .addComponent(lbl_hUpperVal))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(sld_sLower, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_sLowerName)
+                            .addComponent(lbl_sLowerVal))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(sld_sUpper, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_sUpperName)
+                            .addComponent(lbl_sUpperVal))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lbl_vLowerVal)
+                                .addGap(18, 18, 18)
+                                .addComponent(lbl_vUpperVal)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(sld_vLower, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(sld_vUpper, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lbl_vLowerName)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(lbl_vUpperName)
+                                        .addGap(7, 7, 7)))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(sld_dpVal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(sld_dpVal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(15, 15, 15)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lbl_dpVal)
+                                    .addComponent(lbl_dpName))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(sld_param1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lbl_param1Name)
+                                    .addComponent(lbl_param1Val))))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(sld_param2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(13, 13, 13)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lbl_param2Name)
+                                    .addComponent(lbl_param2Val))))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(sld_minCircleSize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(lbl_minName)
+                                .addComponent(lbl_minVal)))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(sld_maxCircleSize, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(lbl_maxName)
+                                .addComponent(lbl_maxVal)))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(sld_hLower, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(sld_hUpper, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(sld_sLower, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(sld_vLower, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(sld_vUpper, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(sld_sUpper, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_hLowerName)
+                    .addComponent(lbl_hUpperName)
+                    .addComponent(lbl_sLowerName)
+                    .addComponent(lbl_sUpperName)
+                    .addComponent(lbl_vLowerName)
+                    .addComponent(lbl_vUpperName))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(sld_param1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jLabel2)))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(sld_param2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(13, 13, 13)
-                        .addComponent(jLabel3)))
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_hLowerVal)
+                    .addComponent(lbl_hUpperVal)
+                    .addComponent(lbl_sLowerVal)
+                    .addComponent(lbl_sUpperVal)
+                    .addComponent(lbl_vLowerVal)
+                    .addComponent(lbl_vUpperVal))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         pack();
@@ -141,17 +456,70 @@ public class CameraWindow extends javax.swing.JFrame
     private void sld_param2StateChanged(javax.swing.event.ChangeEvent evt)//GEN-FIRST:event_sld_param2StateChanged
     {//GEN-HEADEREND:event_sld_param2StateChanged
         i_param2 = sld_param2.getValue();
+        lbl_param2Val.setText("" + sld_param2.getValue());
     }//GEN-LAST:event_sld_param2StateChanged
 
     private void sld_param1StateChanged(javax.swing.event.ChangeEvent evt)//GEN-FIRST:event_sld_param1StateChanged
     {//GEN-HEADEREND:event_sld_param1StateChanged
         i_param1 = sld_param1.getValue();
+        lbl_param1Val.setText("" + sld_param1.getValue());
     }//GEN-LAST:event_sld_param1StateChanged
 
     private void sld_dpValStateChanged(javax.swing.event.ChangeEvent evt)//GEN-FIRST:event_sld_dpValStateChanged
     {//GEN-HEADEREND:event_sld_dpValStateChanged
         i_dp = sld_dpVal.getValue();
+        lbl_dpVal.setText("" + sld_dpVal.getValue());
     }//GEN-LAST:event_sld_dpValStateChanged
+
+    private void sld_minCircleSizeStateChanged(javax.swing.event.ChangeEvent evt)//GEN-FIRST:event_sld_minCircleSizeStateChanged
+    {//GEN-HEADEREND:event_sld_minCircleSizeStateChanged
+        i_minCircleSize = sld_minCircleSize.getValue();
+        lbl_minVal.setText("" + sld_minCircleSize.getValue());
+    }//GEN-LAST:event_sld_minCircleSizeStateChanged
+
+    private void sld_maxCircleSizeStateChanged(javax.swing.event.ChangeEvent evt)//GEN-FIRST:event_sld_maxCircleSizeStateChanged
+    {//GEN-HEADEREND:event_sld_maxCircleSizeStateChanged
+        i_maxCircleSize = sld_maxCircleSize.getValue();
+        lbl_maxVal.setText("" + sld_maxCircleSize.getValue());
+    }//GEN-LAST:event_sld_maxCircleSizeStateChanged
+
+    private void sld_hLowerStateChanged(javax.swing.event.ChangeEvent evt)//GEN-FIRST:event_sld_hLowerStateChanged
+    {//GEN-HEADEREND:event_sld_hLowerStateChanged
+        i_hLower = sld_hLower.getValue();
+        lbl_hLowerVal.setText("" + sld_hLower.getValue());
+    }//GEN-LAST:event_sld_hLowerStateChanged
+
+    private void sld_hUpperStateChanged(javax.swing.event.ChangeEvent evt)//GEN-FIRST:event_sld_hUpperStateChanged
+    {//GEN-HEADEREND:event_sld_hUpperStateChanged
+        i_hUpper = sld_hUpper.getValue();
+        lbl_hUpperVal.setText("" + sld_hUpper.getValue());
+    }//GEN-LAST:event_sld_hUpperStateChanged
+
+    private void sld_sLowerStateChanged(javax.swing.event.ChangeEvent evt)//GEN-FIRST:event_sld_sLowerStateChanged
+    {//GEN-HEADEREND:event_sld_sLowerStateChanged
+        
+        i_sLower = sld_sLower.getValue();
+        lbl_sLowerVal.setText("" + sld_sLower.getValue());
+    }//GEN-LAST:event_sld_sLowerStateChanged
+
+    private void sld_sUpperStateChanged(javax.swing.event.ChangeEvent evt)//GEN-FIRST:event_sld_sUpperStateChanged
+    {//GEN-HEADEREND:event_sld_sUpperStateChanged
+        i_sUpper = sld_sUpper.getValue();
+        lbl_sUpperVal.setText("" + sld_sUpper.getValue());
+    }//GEN-LAST:event_sld_sUpperStateChanged
+
+    private void sld_vLowerStateChanged(javax.swing.event.ChangeEvent evt)//GEN-FIRST:event_sld_vLowerStateChanged
+    {//GEN-HEADEREND:event_sld_vLowerStateChanged
+        
+        i_vLower = sld_vLower.getValue();
+        lbl_vLowerVal.setText("" + sld_vLower.getValue());
+    }//GEN-LAST:event_sld_vLowerStateChanged
+
+    private void sld_vUpperStateChanged(javax.swing.event.ChangeEvent evt)//GEN-FIRST:event_sld_vUpperStateChanged
+    {//GEN-HEADEREND:event_sld_vUpperStateChanged
+        i_vUpper = sld_vUpper.getValue();
+        lbl_vUpperVal.setText("" + sld_vUpper.getValue());
+    }//GEN-LAST:event_sld_vUpperStateChanged
 
     public  int get_dp()
     {
@@ -167,6 +535,47 @@ public class CameraWindow extends javax.swing.JFrame
     {
         return i_param2;
     }
+    
+    public int get_minCircleSize()
+    {
+        return i_minCircleSize;
+    }
+    
+    public int get_maxCircleSize()
+    {
+        return i_maxCircleSize;
+    }
+    
+    public int get_hLower()
+    {
+        return i_hLower;
+    }
+    
+    public int get_sLower()
+    {
+        return i_sLower;
+    }
+    
+    public int get_vLower()
+    {
+        return i_vLower;
+    }
+    
+    public int get_hUpper()
+    {
+        return i_hUpper;
+    }
+    
+    public int get_sUpper()
+    {
+        return i_sUpper;
+    }
+    
+    public int get_vUpper()
+    {
+        return i_vUpper;
+    }
+    
     
     /**
      * @param args the command line arguments
@@ -207,11 +616,38 @@ public class CameraWindow extends javax.swing.JFrame
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel lbl_dpName;
+    private javax.swing.JLabel lbl_dpVal;
+    private javax.swing.JLabel lbl_hLowerName;
+    private javax.swing.JLabel lbl_hLowerVal;
+    private javax.swing.JLabel lbl_hUpperName;
+    private javax.swing.JLabel lbl_hUpperVal;
+    private javax.swing.JLabel lbl_maxName;
+    private javax.swing.JLabel lbl_maxVal;
+    private javax.swing.JLabel lbl_minName;
+    private javax.swing.JLabel lbl_minVal;
+    private javax.swing.JLabel lbl_param1Name;
+    private javax.swing.JLabel lbl_param1Val;
+    private javax.swing.JLabel lbl_param2Name;
+    private javax.swing.JLabel lbl_param2Val;
+    private javax.swing.JLabel lbl_sLowerName;
+    private javax.swing.JLabel lbl_sLowerVal;
+    private javax.swing.JLabel lbl_sUpperName;
+    private javax.swing.JLabel lbl_sUpperVal;
+    private javax.swing.JLabel lbl_vLowerName;
+    private javax.swing.JLabel lbl_vLowerVal;
+    private javax.swing.JLabel lbl_vUpperName;
+    private javax.swing.JLabel lbl_vUpperVal;
     private javax.swing.JSlider sld_dpVal;
+    private javax.swing.JSlider sld_hLower;
+    private javax.swing.JSlider sld_hUpper;
+    private javax.swing.JSlider sld_maxCircleSize;
+    private javax.swing.JSlider sld_minCircleSize;
     private javax.swing.JSlider sld_param1;
     private javax.swing.JSlider sld_param2;
+    private javax.swing.JSlider sld_sLower;
+    private javax.swing.JSlider sld_sUpper;
+    private javax.swing.JSlider sld_vLower;
+    private javax.swing.JSlider sld_vUpper;
     // End of variables declaration//GEN-END:variables
 }
