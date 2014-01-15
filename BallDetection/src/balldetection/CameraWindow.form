@@ -351,7 +351,7 @@
         <Property name="maximum" type="int" value="255"/>
         <Property name="orientation" type="int" value="1"/>
         <Property name="paintTicks" type="boolean" value="true"/>
-        <Property name="value" type="int" value="0"/>
+        <Property name="value" type="int" value="101"/>
       </Properties>
       <Events>
         <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="sld_hLowerStateChanged"/>
@@ -363,7 +363,7 @@
         <Property name="maximum" type="int" value="255"/>
         <Property name="orientation" type="int" value="1"/>
         <Property name="paintTicks" type="boolean" value="true"/>
-        <Property name="value" type="int" value="255"/>
+        <Property name="value" type="int" value="123"/>
       </Properties>
       <Events>
         <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="sld_hUpperStateChanged"/>
@@ -375,7 +375,7 @@
         <Property name="maximum" type="int" value="255"/>
         <Property name="orientation" type="int" value="1"/>
         <Property name="paintTicks" type="boolean" value="true"/>
-        <Property name="value" type="int" value="0"/>
+        <Property name="value" type="int" value="73"/>
       </Properties>
       <Events>
         <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="sld_sLowerStateChanged"/>
@@ -402,7 +402,7 @@
         <Property name="maximum" type="int" value="255"/>
         <Property name="orientation" type="int" value="1"/>
         <Property name="paintTicks" type="boolean" value="true"/>
-        <Property name="value" type="int" value="255"/>
+        <Property name="value" type="int" value="207"/>
       </Properties>
       <Events>
         <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="sld_sUpperStateChanged"/>
@@ -420,7 +420,7 @@
         <Property name="orientation" type="int" value="1"/>
         <Property name="paintTicks" type="boolean" value="true"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
-        <Property name="value" type="int" value="0"/>
+        <Property name="value" type="int" value="88"/>
       </Properties>
       <Events>
         <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="sld_vLowerStateChanged"/>

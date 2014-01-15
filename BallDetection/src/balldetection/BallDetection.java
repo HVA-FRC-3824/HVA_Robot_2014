@@ -31,10 +31,12 @@ public class BallDetection {
     public static void main(String[] args) throws IOException {
         CameraWindow cWindow = new CameraWindow();
         cWindow.setVisible(true);
+        int radius = 0;
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
         VideoCapture camera = new VideoCapture(0);
         Mat frame = new Mat();
         Webcam.ImagePanel panel = Webcam.createPanel(camera);
+        Webcam.ImagePanel panel2 = Webcam.createPanel(camera);
         while (true) {
             Mat gray = new Mat(), src, circles = new Mat();
             Mat hsv = new Mat(), filter = new Mat();
@@ -52,16 +54,17 @@ public class BallDetection {
             
             //Imgproc.cvtColor(redOnly, gray, Imgproc.color_h );
             double[] temp = hsv.get(hsv.rows()/2, hsv.cols()/2);
-            System.out.println(temp[0] + ", " + temp[1] + ", " + temp[2]);
+            System.out.println(temp[0] + ", " + temp[1] + ", " + temp[2] + ", " + radius);
+            //System.out.println("Current Distance from ball: " + ((2.5366*radius) - 123.02));
             
-            Imgproc.HoughCircles(filter, circles, CV_HOUGH_GRADIENT, cWindow.get_dp(), filter.rows()/16, 
+            Imgproc.HoughCircles(filter, circles, CV_HOUGH_GRADIENT, cWindow.get_dp(), filter.rows()/2, 
                     cWindow.get_param1(), cWindow.get_param2(), 
                     cWindow.get_minCircleSize(), cWindow.get_maxCircleSize());
 
             for(int i = 0; i < circles.cols(); i++)
             {
                 Point center = new Point(Math.round(circles.get(0,i)[0]), Math.round(circles.get(0,i)[1]));
-                int radius = (int)Math.round(circles.get(0,i)[2]);
+                radius = (int)Math.round(circles.get(0,i)[2]);
                 // draw the circle center
                 Core.circle(src, center, 3, new Scalar(0,255,0), -1, 8, 0 );
                 // draw the circle outline
@@ -70,6 +73,7 @@ public class BallDetection {
             }  
 
             panel.updateImage(toBufferedImage(src));
+            panel2.updateImage(toBufferedImage(filter));
         }
     }
 }

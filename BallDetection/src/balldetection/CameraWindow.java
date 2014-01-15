@@ -29,11 +29,17 @@ public class CameraWindow extends javax.swing.JFrame
     public CameraWindow()
     {
         initComponents();
-        i_dp = 1;
-        i_param1 = 100;
+        i_dp = 6;
+        i_param1 = 240;
         i_param2 = 200;
         i_minCircleSize = 0;
-        i_maxCircleSize = 0;
+        i_maxCircleSize = 200;
+        i_hLower = 106;
+        i_hUpper = 133;
+        i_sLower = 83;
+        i_sUpper = 210;
+        i_vLower = 92;
+        i_vUpper = 255;
         
         lbl_dpVal.setText("" + sld_dpVal.getValue());
         lbl_param1Val.setText("" + sld_param1.getValue());
@@ -57,8 +63,7 @@ public class CameraWindow extends javax.swing.JFrame
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         sld_dpVal = new javax.swing.JSlider();
         lbl_dpName = new javax.swing.JLabel();
@@ -105,10 +110,8 @@ public class CameraWindow extends javax.swing.JFrame
         sld_dpVal.setSnapToTicks(true);
         sld_dpVal.setToolTipText("");
         sld_dpVal.setValue(1);
-        sld_dpVal.addChangeListener(new javax.swing.event.ChangeListener()
-        {
-            public void stateChanged(javax.swing.event.ChangeEvent evt)
-            {
+        sld_dpVal.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 sld_dpValStateChanged(evt);
             }
         });
@@ -123,10 +126,8 @@ public class CameraWindow extends javax.swing.JFrame
         sld_param1.setSnapToTicks(true);
         sld_param1.setToolTipText("");
         sld_param1.setValue(200);
-        sld_param1.addChangeListener(new javax.swing.event.ChangeListener()
-        {
-            public void stateChanged(javax.swing.event.ChangeEvent evt)
-            {
+        sld_param1.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 sld_param1StateChanged(evt);
             }
         });
@@ -141,10 +142,8 @@ public class CameraWindow extends javax.swing.JFrame
         sld_param2.setSnapToTicks(true);
         sld_param2.setToolTipText("");
         sld_param2.setValue(100);
-        sld_param2.addChangeListener(new javax.swing.event.ChangeListener()
-        {
-            public void stateChanged(javax.swing.event.ChangeEvent evt)
-            {
+        sld_param2.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 sld_param2StateChanged(evt);
             }
         });
@@ -158,10 +157,8 @@ public class CameraWindow extends javax.swing.JFrame
         sld_minCircleSize.setPaintTicks(true);
         sld_minCircleSize.setSnapToTicks(true);
         sld_minCircleSize.setValue(0);
-        sld_minCircleSize.addChangeListener(new javax.swing.event.ChangeListener()
-        {
-            public void stateChanged(javax.swing.event.ChangeEvent evt)
-            {
+        sld_minCircleSize.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 sld_minCircleSizeStateChanged(evt);
             }
         });
@@ -172,10 +169,8 @@ public class CameraWindow extends javax.swing.JFrame
         sld_maxCircleSize.setPaintLabels(true);
         sld_maxCircleSize.setPaintTicks(true);
         sld_maxCircleSize.setValue(0);
-        sld_maxCircleSize.addChangeListener(new javax.swing.event.ChangeListener()
-        {
-            public void stateChanged(javax.swing.event.ChangeEvent evt)
-            {
+        sld_maxCircleSize.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 sld_maxCircleSizeStateChanged(evt);
             }
         });
@@ -198,11 +193,9 @@ public class CameraWindow extends javax.swing.JFrame
         sld_hLower.setMaximum(255);
         sld_hLower.setOrientation(javax.swing.JSlider.VERTICAL);
         sld_hLower.setPaintTicks(true);
-        sld_hLower.setValue(0);
-        sld_hLower.addChangeListener(new javax.swing.event.ChangeListener()
-        {
-            public void stateChanged(javax.swing.event.ChangeEvent evt)
-            {
+        sld_hLower.setValue(101);
+        sld_hLower.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 sld_hLowerStateChanged(evt);
             }
         });
@@ -211,11 +204,9 @@ public class CameraWindow extends javax.swing.JFrame
         sld_hUpper.setMaximum(255);
         sld_hUpper.setOrientation(javax.swing.JSlider.VERTICAL);
         sld_hUpper.setPaintTicks(true);
-        sld_hUpper.setValue(255);
-        sld_hUpper.addChangeListener(new javax.swing.event.ChangeListener()
-        {
-            public void stateChanged(javax.swing.event.ChangeEvent evt)
-            {
+        sld_hUpper.setValue(123);
+        sld_hUpper.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 sld_hUpperStateChanged(evt);
             }
         });
@@ -224,11 +215,9 @@ public class CameraWindow extends javax.swing.JFrame
         sld_sLower.setMaximum(255);
         sld_sLower.setOrientation(javax.swing.JSlider.VERTICAL);
         sld_sLower.setPaintTicks(true);
-        sld_sLower.setValue(0);
-        sld_sLower.addChangeListener(new javax.swing.event.ChangeListener()
-        {
-            public void stateChanged(javax.swing.event.ChangeEvent evt)
-            {
+        sld_sLower.setValue(73);
+        sld_sLower.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 sld_sLowerStateChanged(evt);
             }
         });
@@ -243,11 +232,9 @@ public class CameraWindow extends javax.swing.JFrame
         sld_sUpper.setMaximum(255);
         sld_sUpper.setOrientation(javax.swing.JSlider.VERTICAL);
         sld_sUpper.setPaintTicks(true);
-        sld_sUpper.setValue(255);
-        sld_sUpper.addChangeListener(new javax.swing.event.ChangeListener()
-        {
-            public void stateChanged(javax.swing.event.ChangeEvent evt)
-            {
+        sld_sUpper.setValue(207);
+        sld_sUpper.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 sld_sUpperStateChanged(evt);
             }
         });
@@ -259,11 +246,9 @@ public class CameraWindow extends javax.swing.JFrame
         sld_vLower.setOrientation(javax.swing.JSlider.VERTICAL);
         sld_vLower.setPaintTicks(true);
         sld_vLower.setToolTipText("");
-        sld_vLower.setValue(0);
-        sld_vLower.addChangeListener(new javax.swing.event.ChangeListener()
-        {
-            public void stateChanged(javax.swing.event.ChangeEvent evt)
-            {
+        sld_vLower.setValue(88);
+        sld_vLower.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 sld_vLowerStateChanged(evt);
             }
         });
@@ -273,10 +258,8 @@ public class CameraWindow extends javax.swing.JFrame
         sld_vUpper.setOrientation(javax.swing.JSlider.VERTICAL);
         sld_vUpper.setPaintTicks(true);
         sld_vUpper.setValue(255);
-        sld_vUpper.addChangeListener(new javax.swing.event.ChangeListener()
-        {
-            public void stateChanged(javax.swing.event.ChangeEvent evt)
-            {
+        sld_vUpper.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 sld_vUpperStateChanged(evt);
             }
         });

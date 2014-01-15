@@ -7,4 +7,4 @@
 /BallDetection/nbproject/private/
 /BallDetection/build/
 /BallDetection/dist/
-*.properties
+project.properties
