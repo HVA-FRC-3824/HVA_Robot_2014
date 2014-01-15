@@ -22,18 +22,18 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
-import org.opencv.core.Point;
-import org.opencv.core.Scalar;
-import org.opencv.core.Size;
+import org.opencv.highgui.Highgui;
 import org.opencv.highgui.VideoCapture;
 import org.opencv.imgproc.Imgproc;
-import static org.opencv.imgproc.Imgproc.CV_HOUGH_GRADIENT;
-import static org.opencv.imgproc.Imgproc.GaussianBlur;
 
 class Webcam {
 
     private static final int WIDTH = 640, HEIGHT = 480;
 
+    
+    private static int counter = 1;
+    static VideoCapture camera = new VideoCapture(0);
+    
     public static Image toBufferedImage(Mat m) {
         int type = BufferedImage.TYPE_BYTE_GRAY;
         if (m.channels() > 1) {
@@ -81,13 +81,21 @@ class Webcam {
 
     public static void main(String[] args) throws Exception {
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
-        VideoCapture camera = new VideoCapture(0);
+      //  VideoCapture camera = new VideoCapture(0);
         Mat frame = new Mat();
         ImagePanel panel = createPanel(camera);
         while (true) {
             camera.read(frame);
             panel.updateImage(toBufferedImage(frame));
         }
+    }
+    
+    public static void takeScreenshot()
+    {
+        Mat matFrame = new Mat();
+        camera.read(matFrame);
+        Highgui.imwrite("screenshots\\screenshot " + counter + ".jpeg", matFrame);
+        counter++;
     }
 }
 

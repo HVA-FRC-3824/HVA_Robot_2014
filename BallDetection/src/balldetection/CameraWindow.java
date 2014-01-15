@@ -63,7 +63,8 @@ public class CameraWindow extends javax.swing.JFrame
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    private void initComponents()
+    {
 
         sld_dpVal = new javax.swing.JSlider();
         lbl_dpName = new javax.swing.JLabel();
@@ -98,6 +99,10 @@ public class CameraWindow extends javax.swing.JFrame
         lbl_sUpperVal = new javax.swing.JLabel();
         lbl_vLowerVal = new javax.swing.JLabel();
         lbl_vUpperVal = new javax.swing.JLabel();
+        btn_srcSS = new javax.swing.JButton();
+        btn_dstSS = new javax.swing.JButton();
+        btn_filterSS = new javax.swing.JButton();
+        btn_hsvSS = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -110,8 +115,10 @@ public class CameraWindow extends javax.swing.JFrame
         sld_dpVal.setSnapToTicks(true);
         sld_dpVal.setToolTipText("");
         sld_dpVal.setValue(1);
-        sld_dpVal.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+        sld_dpVal.addChangeListener(new javax.swing.event.ChangeListener()
+        {
+            public void stateChanged(javax.swing.event.ChangeEvent evt)
+            {
                 sld_dpValStateChanged(evt);
             }
         });
@@ -126,8 +133,10 @@ public class CameraWindow extends javax.swing.JFrame
         sld_param1.setSnapToTicks(true);
         sld_param1.setToolTipText("");
         sld_param1.setValue(200);
-        sld_param1.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+        sld_param1.addChangeListener(new javax.swing.event.ChangeListener()
+        {
+            public void stateChanged(javax.swing.event.ChangeEvent evt)
+            {
                 sld_param1StateChanged(evt);
             }
         });
@@ -142,8 +151,10 @@ public class CameraWindow extends javax.swing.JFrame
         sld_param2.setSnapToTicks(true);
         sld_param2.setToolTipText("");
         sld_param2.setValue(100);
-        sld_param2.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+        sld_param2.addChangeListener(new javax.swing.event.ChangeListener()
+        {
+            public void stateChanged(javax.swing.event.ChangeEvent evt)
+            {
                 sld_param2StateChanged(evt);
             }
         });
@@ -157,8 +168,10 @@ public class CameraWindow extends javax.swing.JFrame
         sld_minCircleSize.setPaintTicks(true);
         sld_minCircleSize.setSnapToTicks(true);
         sld_minCircleSize.setValue(0);
-        sld_minCircleSize.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+        sld_minCircleSize.addChangeListener(new javax.swing.event.ChangeListener()
+        {
+            public void stateChanged(javax.swing.event.ChangeEvent evt)
+            {
                 sld_minCircleSizeStateChanged(evt);
             }
         });
@@ -169,8 +182,10 @@ public class CameraWindow extends javax.swing.JFrame
         sld_maxCircleSize.setPaintLabels(true);
         sld_maxCircleSize.setPaintTicks(true);
         sld_maxCircleSize.setValue(0);
-        sld_maxCircleSize.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+        sld_maxCircleSize.addChangeListener(new javax.swing.event.ChangeListener()
+        {
+            public void stateChanged(javax.swing.event.ChangeEvent evt)
+            {
                 sld_maxCircleSizeStateChanged(evt);
             }
         });
@@ -194,8 +209,10 @@ public class CameraWindow extends javax.swing.JFrame
         sld_hLower.setOrientation(javax.swing.JSlider.VERTICAL);
         sld_hLower.setPaintTicks(true);
         sld_hLower.setValue(101);
-        sld_hLower.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+        sld_hLower.addChangeListener(new javax.swing.event.ChangeListener()
+        {
+            public void stateChanged(javax.swing.event.ChangeEvent evt)
+            {
                 sld_hLowerStateChanged(evt);
             }
         });
@@ -205,8 +222,10 @@ public class CameraWindow extends javax.swing.JFrame
         sld_hUpper.setOrientation(javax.swing.JSlider.VERTICAL);
         sld_hUpper.setPaintTicks(true);
         sld_hUpper.setValue(123);
-        sld_hUpper.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+        sld_hUpper.addChangeListener(new javax.swing.event.ChangeListener()
+        {
+            public void stateChanged(javax.swing.event.ChangeEvent evt)
+            {
                 sld_hUpperStateChanged(evt);
             }
         });
@@ -216,8 +235,10 @@ public class CameraWindow extends javax.swing.JFrame
         sld_sLower.setOrientation(javax.swing.JSlider.VERTICAL);
         sld_sLower.setPaintTicks(true);
         sld_sLower.setValue(73);
-        sld_sLower.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+        sld_sLower.addChangeListener(new javax.swing.event.ChangeListener()
+        {
+            public void stateChanged(javax.swing.event.ChangeEvent evt)
+            {
                 sld_sLowerStateChanged(evt);
             }
         });
@@ -233,8 +254,10 @@ public class CameraWindow extends javax.swing.JFrame
         sld_sUpper.setOrientation(javax.swing.JSlider.VERTICAL);
         sld_sUpper.setPaintTicks(true);
         sld_sUpper.setValue(207);
-        sld_sUpper.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+        sld_sUpper.addChangeListener(new javax.swing.event.ChangeListener()
+        {
+            public void stateChanged(javax.swing.event.ChangeEvent evt)
+            {
                 sld_sUpperStateChanged(evt);
             }
         });
@@ -247,8 +270,10 @@ public class CameraWindow extends javax.swing.JFrame
         sld_vLower.setPaintTicks(true);
         sld_vLower.setToolTipText("");
         sld_vLower.setValue(88);
-        sld_vLower.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+        sld_vLower.addChangeListener(new javax.swing.event.ChangeListener()
+        {
+            public void stateChanged(javax.swing.event.ChangeEvent evt)
+            {
                 sld_vLowerStateChanged(evt);
             }
         });
@@ -258,8 +283,10 @@ public class CameraWindow extends javax.swing.JFrame
         sld_vUpper.setOrientation(javax.swing.JSlider.VERTICAL);
         sld_vUpper.setPaintTicks(true);
         sld_vUpper.setValue(255);
-        sld_vUpper.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+        sld_vUpper.addChangeListener(new javax.swing.event.ChangeListener()
+        {
+            public void stateChanged(javax.swing.event.ChangeEvent evt)
+            {
                 sld_vUpperStateChanged(evt);
             }
         });
@@ -279,6 +306,42 @@ public class CameraWindow extends javax.swing.JFrame
         lbl_vLowerVal.setText("jLabel1");
 
         lbl_vUpperVal.setText("jLabel1");
+
+        btn_srcSS.setText("Screenshot: Src");
+        btn_srcSS.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                btn_srcSSActionPerformed(evt);
+            }
+        });
+
+        btn_dstSS.setText("Screenshot: Dst");
+        btn_dstSS.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                btn_dstSSActionPerformed(evt);
+            }
+        });
+
+        btn_filterSS.setText("Screenshot: Filter");
+        btn_filterSS.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                btn_filterSSActionPerformed(evt);
+            }
+        });
+
+        btn_hsvSS.setText("Screenshot: Hsv");
+        btn_hsvSS.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                btn_hsvSSActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -325,43 +388,45 @@ public class CameraWindow extends javax.swing.JFrame
                         .addGap(28, 28, 28))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(sld_hLower, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbl_hLowerName)
-                            .addComponent(lbl_hLowerVal))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(sld_hUpper, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbl_hUpperName)
-                            .addComponent(lbl_hUpperVal))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(sld_sLower, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbl_sLowerName)
-                            .addComponent(lbl_sLowerVal))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(sld_sUpper, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbl_sUpperName)
-                            .addComponent(lbl_sUpperVal))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(lbl_vLowerVal)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(sld_hLower, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbl_hLowerName)
+                                    .addComponent(lbl_hLowerVal))
                                 .addGap(18, 18, 18)
-                                .addComponent(lbl_vUpperVal)
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(sld_hUpper, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbl_hUpperName)
+                                    .addComponent(lbl_hUpperVal))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(sld_sLower, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbl_sLowerName)
+                                    .addComponent(lbl_sLowerVal))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(sld_sUpper, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbl_sUpperName)
+                                    .addComponent(lbl_sUpperVal))
+                                .addGap(18, 18, 18)
+                                .addComponent(sld_vLower, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lbl_vUpperName)
+                                    .addComponent(sld_vUpper, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lbl_vUpperVal))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btn_srcSS)
+                                    .addComponent(btn_dstSS)
+                                    .addComponent(btn_filterSS)
+                                    .addComponent(btn_hsvSS)))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(sld_vLower, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(sld_vUpper, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lbl_vLowerName)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(lbl_vUpperName)
-                                        .addGap(7, 7, 7)))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                                .addGap(256, 256, 256)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lbl_vLowerName)
+                                    .addComponent(lbl_vLowerVal))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -412,7 +477,15 @@ public class CameraWindow extends javax.swing.JFrame
                                     .addComponent(sld_hUpper, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(sld_sLower, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addComponent(sld_vLower, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(sld_vUpper, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(sld_vUpper, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(btn_srcSS)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btn_dstSS)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btn_hsvSS)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btn_filterSS))))
                     .addComponent(sld_sUpper, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -503,6 +576,26 @@ public class CameraWindow extends javax.swing.JFrame
         i_vUpper = sld_vUpper.getValue();
         lbl_vUpperVal.setText("" + sld_vUpper.getValue());
     }//GEN-LAST:event_sld_vUpperStateChanged
+
+    private void btn_srcSSActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btn_srcSSActionPerformed
+    {//GEN-HEADEREND:event_btn_srcSSActionPerformed
+        BallDetection.takeScreenshot(1);
+    }//GEN-LAST:event_btn_srcSSActionPerformed
+
+    private void btn_dstSSActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btn_dstSSActionPerformed
+    {//GEN-HEADEREND:event_btn_dstSSActionPerformed
+        BallDetection.takeScreenshot(2);
+    }//GEN-LAST:event_btn_dstSSActionPerformed
+
+    private void btn_hsvSSActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btn_hsvSSActionPerformed
+    {//GEN-HEADEREND:event_btn_hsvSSActionPerformed
+        BallDetection.takeScreenshot(3);
+    }//GEN-LAST:event_btn_hsvSSActionPerformed
+
+    private void btn_filterSSActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btn_filterSSActionPerformed
+    {//GEN-HEADEREND:event_btn_filterSSActionPerformed
+        BallDetection.takeScreenshot(4);
+    }//GEN-LAST:event_btn_filterSSActionPerformed
 
     public  int get_dp()
     {
@@ -599,6 +692,10 @@ public class CameraWindow extends javax.swing.JFrame
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_dstSS;
+    private javax.swing.JButton btn_filterSS;
+    private javax.swing.JButton btn_hsvSS;
+    private javax.swing.JButton btn_srcSS;
     private javax.swing.JLabel lbl_dpName;
     private javax.swing.JLabel lbl_dpVal;
     private javax.swing.JLabel lbl_hLowerName;

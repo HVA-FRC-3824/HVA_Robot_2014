@@ -14,6 +14,7 @@ import org.opencv.core.Mat;
 import org.opencv.core.Point;
 import org.opencv.core.Scalar;
 import org.opencv.core.Size;
+import org.opencv.highgui.Highgui;
 import org.opencv.highgui.VideoCapture;
 import org.opencv.imgproc.*;
 import static org.opencv.imgproc.Imgproc.CV_HOUGH_GRADIENT;
@@ -25,34 +26,78 @@ import static org.opencv.imgproc.Imgproc.GaussianBlur;
  */
 public class BallDetection {
 
+    private static int counter = 0;
+    
+    static VideoCapture camera;
+    
+    private static Mat gray, src, circles;
+    private static Mat hsv, filter;
+    private static Mat dst;
+        
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) throws IOException {
+        
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for(javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(CameraWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(CameraWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(CameraWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(CameraWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
         CameraWindow cWindow = new CameraWindow();
         cWindow.setVisible(true);
+        
         int radius = 0;
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
-        VideoCapture camera = new VideoCapture(0);
+        
+        gray = new Mat();
+        circles = new Mat();
+        hsv = new Mat();
+        filter = new Mat();
+        dst = new Mat();
+        
+        camera = new VideoCapture(0);
         Mat frame = new Mat();
         Webcam.ImagePanel panel = Webcam.createPanel(camera);
         Webcam.ImagePanel panel2 = Webcam.createPanel(camera);
-        while (true) {
-            Mat gray = new Mat(), src, circles = new Mat();
-            Mat hsv = new Mat(), filter = new Mat();
+        Webcam.ImagePanel panel3 = Webcam.createPanel(camera);
+        
+        while (true) 
+        {
+            
             camera.read(frame);
             src = frame;
 
+            GaussianBlur(src, src, new Size(3,3), 2, 2);
             Imgproc.cvtColor(src, hsv, Imgproc.COLOR_BGR2HSV);
             Imgproc.cvtColor(src, gray, Imgproc.COLOR_BGR2GRAY);
-            //GaussianBlur(gray, gray, new Size(9,9), 2, 2);
+            
+            
             Core.inRange(gray, new Scalar(20, 100, 100), new Scalar(30, 255, 255), gray);
             Core.inRange(hsv, new Scalar(cWindow.get_hLower(), cWindow.get_sLower(), cWindow.get_vLower()), 
                     new Scalar(cWindow.get_hUpper(), cWindow.get_sUpper(), cWindow.get_vUpper()), filter);
-            //Core.inRange(hsv, new Scalar(0, 0, 0), new Scalar(0, 255, 0), filter);
-            //Core.inRange(hsv, new Scalar(0, 0, 0), new Scalar(255, 0, 0), filter);
             
-            //Imgproc.cvtColor(redOnly, gray, Imgproc.color_h );
+            Core.inRange(src, new Scalar(cWindow.get_hLower(), cWindow.get_sLower(), cWindow.get_vLower()), 
+                    new Scalar(cWindow.get_hUpper(), cWindow.get_sUpper(), cWindow.get_vUpper()), dst);
+           
             double[] temp = hsv.get(hsv.rows()/2, hsv.cols()/2);
             System.out.println(temp[0] + ", " + temp[1] + ", " + temp[2] + ", " + radius);
             //System.out.println("Current Distance from ball: " + ((2.5366*radius) - 123.02));
@@ -74,6 +119,32 @@ public class BallDetection {
 
             panel.updateImage(toBufferedImage(src));
             panel2.updateImage(toBufferedImage(filter));
+            panel3.updateImage(toBufferedImage(dst));
         }
+    }
+    
+    public static void takeScreenshot(int mat)
+    {
+        Mat matFrame = new Mat();
+        
+        switch(mat)
+        {
+            case 1:
+                matFrame = src;
+                break;
+            case 2:
+                matFrame = dst;
+                break;
+            case 3:
+                matFrame = hsv;
+                break;
+            default:
+                matFrame = filter;
+                break;
+        }
+        
+        //camera.read(matFrame);
+        Highgui.imwrite("screenshots\\screenshot " + counter + ".jpeg", matFrame);
+        counter++;
     }
 }

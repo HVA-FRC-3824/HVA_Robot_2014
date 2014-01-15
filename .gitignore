@@ -4,7 +4,10 @@
 *.jar
 *.war
 *.ear
-/BallDetection/nbproject/private/
+/BallDetection/nbproject/
 /BallDetection/build/
 /BallDetection/dist/
-project.properties
+/BallDetection/screenshots/
+/BallDetection/nbproject/project.properties
+
+*.properties

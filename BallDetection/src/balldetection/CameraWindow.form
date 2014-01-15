@@ -75,55 +75,57 @@
                       </Group>
                       <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="sld_hLower" alignment="0" min="-2" pref="44" max="-2" attributes="0"/>
-                          <Component id="lbl_hLowerName" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="lbl_hLowerVal" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="sld_hUpper" alignment="0" min="-2" pref="44" max="-2" attributes="0"/>
-                          <Component id="lbl_hUpperName" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="lbl_hUpperVal" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="sld_sLower" alignment="0" min="-2" pref="52" max="-2" attributes="0"/>
-                          <Component id="lbl_sLowerName" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="lbl_sLowerVal" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="sld_sUpper" alignment="0" min="-2" pref="44" max="-2" attributes="0"/>
-                          <Component id="lbl_sUpperName" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="lbl_sUpperVal" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="lbl_vLowerVal" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="lbl_vUpperVal" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="sld_vLower" min="-2" pref="39" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="sld_vUpper" min="-2" pref="44" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="lbl_vLowerName" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="lbl_vUpperName" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
-                                  </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="sld_hLower" alignment="0" min="-2" pref="44" max="-2" attributes="0"/>
+                                  <Component id="lbl_hLowerName" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lbl_hLowerVal" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="sld_hUpper" alignment="0" min="-2" pref="44" max="-2" attributes="0"/>
+                                  <Component id="lbl_hUpperName" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lbl_hUpperVal" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="sld_sLower" alignment="0" min="-2" pref="52" max="-2" attributes="0"/>
+                                  <Component id="lbl_sLowerName" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lbl_sLowerVal" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="sld_sUpper" alignment="0" min="-2" pref="44" max="-2" attributes="0"/>
+                                  <Component id="lbl_sUpperName" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lbl_sUpperVal" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="sld_vLower" min="-2" pref="39" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lbl_vUpperName" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="sld_vUpper" alignment="0" min="-2" pref="44" max="-2" attributes="0"/>
+                                  <Component id="lbl_vUpperVal" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="btn_srcSS" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btn_dstSS" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btn_filterSS" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btn_hsvSS" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="256" pref="256" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lbl_vLowerName" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lbl_vLowerVal" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -194,6 +196,15 @@
                               <Component id="sld_vLower" alignment="1" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Component id="sld_vUpper" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="btn_srcSS" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="btn_dstSS" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="btn_hsvSS" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="btn_filterSS" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
                   <Component id="sld_sUpper" min="-2" max="-2" attributes="0"/>
@@ -477,6 +488,38 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="jLabel1"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btn_srcSS">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Screenshot: Src"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_srcSSActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btn_dstSS">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Screenshot: Dst"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_dstSSActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btn_filterSS">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Screenshot: Filter"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_filterSSActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btn_hsvSS">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Screenshot: Hsv"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_hsvSSActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
