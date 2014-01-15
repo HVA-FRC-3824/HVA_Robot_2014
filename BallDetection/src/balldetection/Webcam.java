@@ -62,7 +62,7 @@ class Webcam {
         }
     }
     
-    public static ImagePanel createPanel(final VideoCapture camera) throws IOException {
+    public static ImagePanel createPanel(final VideoCapture camera, String frameName) throws IOException {
         JFrame frame = new JFrame();
         frame.addWindowListener(new WindowAdapter() {
             @Override
@@ -75,6 +75,10 @@ class Webcam {
         panel.setPreferredSize(new Dimension(WIDTH, HEIGHT));
         frame.getContentPane().add(panel);
         frame.pack();
+        frame.setLocationByPlatform(true);
+        frame.setName(frameName);
+        
+        //frame.getOwner().setName(frameName);
         frame.setVisible(true);
         return panel;
     }
@@ -83,7 +87,7 @@ class Webcam {
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
       //  VideoCapture camera = new VideoCapture(0);
         Mat frame = new Mat();
-        ImagePanel panel = createPanel(camera);
+        ImagePanel panel = createPanel(camera, "camera");
         while (true) {
             camera.read(frame);
             panel.updateImage(toBufferedImage(frame));

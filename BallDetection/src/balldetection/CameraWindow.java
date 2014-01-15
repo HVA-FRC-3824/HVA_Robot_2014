@@ -105,6 +105,7 @@ public class CameraWindow extends javax.swing.JFrame
         btn_hsvSS = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setName("sliders"); // NOI18N
 
         sld_dpVal.setMajorTickSpacing(2);
         sld_dpVal.setMaximum(10);

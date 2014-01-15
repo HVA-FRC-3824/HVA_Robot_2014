@@ -8,7 +8,6 @@ package balldetection;
 
 import static balldetection.Webcam.toBufferedImage;
 import java.io.IOException;
-import java.util.Vector;
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.core.Point;
@@ -19,7 +18,7 @@ import org.opencv.highgui.VideoCapture;
 import org.opencv.imgproc.*;
 import static org.opencv.imgproc.Imgproc.CV_HOUGH_GRADIENT;
 import static org.opencv.imgproc.Imgproc.GaussianBlur;
-
+import java.util.Date;
 /**
  *
  * @author FIRST
@@ -36,6 +35,7 @@ public class BallDetection {
         
     /**
      * @param args the command line arguments
+     * @throws java.io.IOException
      */
     public static void main(String[] args) throws IOException {
         
@@ -51,13 +51,7 @@ public class BallDetection {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CameraWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CameraWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CameraWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(CameraWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
@@ -76,9 +70,9 @@ public class BallDetection {
         
         camera = new VideoCapture(0);
         Mat frame = new Mat();
-        Webcam.ImagePanel panel = Webcam.createPanel(camera);
-        Webcam.ImagePanel panel2 = Webcam.createPanel(camera);
-        Webcam.ImagePanel panel3 = Webcam.createPanel(camera);
+        Webcam.ImagePanel panel = Webcam.createPanel(camera, "src");
+        Webcam.ImagePanel panel2 = Webcam.createPanel(camera, "filter");
+        Webcam.ImagePanel panel3 = Webcam.createPanel(camera, "dst");
         
         while (true) 
         {
@@ -125,6 +119,7 @@ public class BallDetection {
     
     public static void takeScreenshot(int mat)
     {
+        Date tempDate = new Date();
         Mat matFrame = new Mat();
         
         switch(mat)
@@ -144,7 +139,7 @@ public class BallDetection {
         }
         
         //camera.read(matFrame);
-        Highgui.imwrite("screenshots\\screenshot " + counter + ".jpeg", matFrame);
+        Highgui.imwrite("screenshots\\ Screenshot " + counter + " -" + String.format("%1$s %2$tb %2$td at %2$tH %2$tM %2$tS","", tempDate) + ".jpeg", matFrame);
         counter++;
     }
 }
