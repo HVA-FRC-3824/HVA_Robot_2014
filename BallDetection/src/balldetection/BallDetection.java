@@ -29,9 +29,7 @@ public class BallDetection {
     
     static VideoCapture camera;
     
-    private static Mat gray, src, circles;
-    private static Mat hsv, filter;
-    private static Mat dst;
+    private static Mat gray, src, hsv, filter, dst;
         
     /**
      * @param args the command line arguments
@@ -62,11 +60,10 @@ public class BallDetection {
         int radius = 0;
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
         
-        gray = new Mat();
-        circles = new Mat();
-        hsv = new Mat();
-        filter = new Mat();
-        dst = new Mat();
+        //intialization of matrices
+        Mat circles = new Mat();
+        gray = new Mat(); hsv = new Mat();
+        filter = new Mat(); dst = new Mat();
         
         camera = new VideoCapture(0);
         Mat frame = new Mat();
